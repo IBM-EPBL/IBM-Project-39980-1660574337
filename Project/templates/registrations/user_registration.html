@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% block title %}New User - Register{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/homestyle.css">
+    <link rel="stylesheet" href="/static/css/register/user_register.css">
+{% endblock style %}
+
+{% block content %}
+        <div class="outer_box2">
+            <div class="form_box2">
+                <form method="POST" autocomplete="off" id="user_register_form" action="/formreg">
+                    <h3 class="d-flex justify-content-center pb-2" style="font-weight: bold">Registration Form</h3>
+                    <div class="row g-1 align-items-center">
+                        <label for="firstname" class="col-4 col-form-label">First Name</label>
+                        <div class="col">
+                            <input class="form-control" id="firstname" type="text" name="fname">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center mt-2">
+                        <label for="lastname" class="col-4 col-form-label">Last Name</label>
+                        <div class="col">
+                            <input class="form-control" id="lastname" type="text" name="lname">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center mt-2">
+                        <label for="email_id" class="col-4  col-form-label">Email</label>
+                        <div class="col">
+                            <input class="form-control" id="email_id" type="email" name="email">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center mt-2">
+                        <label for="mob_num" class="col-4  col-form-label">Mobile No.</label>
+                        <div class="col">
+                            <input class="form-control" id="mob_num" type="text" name="phonenumber">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center mt-2">
+                        <label for="pwd1" class="col-4 col-form-label">Password</label>
+                        <div class="col">
+                            <input class="form-control" id="pwd1" type="password" name="password1">
+                        </div>
+                    </div>
+                    <div class="row g-1 align-items-center mt-2">
+                        <label for="pwd2" class="col-4  col-form-label">Confirm Password</label>
+                        <div class="col">
+                            <input class="form-control" id="pwd2" type="password" name="password2">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="brand_box">
+                <a class="navbar-brand">IBM Plasma Donor</a>
+            </div>
+        </nav>
+{% endblock content %}

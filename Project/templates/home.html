@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/homestyle.css">
+{% endblock style %}
+
+{% block content %}
+    <div class="outer_box">
+        <div class="about_box">
+            <div>
+                <h2>Plasma Donor Application</h2>
+                <p>During the COVID 19 crisis, the requirement of plasma became high and the donor count being low. It’s very difficult to find the respective blood group donors when anyone is in need. The Plasma Application helps people to find a plasma donors easily.</p>
+            </div>
+        </div>
+        <div class="form_box">
+            <!--  Didn't add middleware yet" -->
+            <form method="POST" autocomplete="off" id="Login_form" action="/login">
+                <h3 class="d-flex justify-content-center">Login</h3>
+                <div class="mt-2">
+                    <h6>Username</h6>
+                    <input class="form-control" type="text" name="email" placeholder="example123@gmail.com">
+                </div>
+                <div class="mt-2">
+                    <h6>Password</h6>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="mt-2 d-flex justify-content-end">
+                    <a style="font-size: 13px; color: #ffffff" href="#">Forgot Password?</a>
+                </div>
+                <div class="d-grid gap-2 mt-2">
+                    <button class="btn btn-light" type="submit">Login</button>
+                </div>
+                <div class="mt-2">
+                    <p style="font-size: 15px">Don't have an account? <a style="color: white; text-decoration: underline" href="#">Create Account</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="brand_box">
+            <a class="navbar-brand" href="#">IBM Plasma Donor</a>
+        </div>
+    </nav>
+{% endblock content %}
