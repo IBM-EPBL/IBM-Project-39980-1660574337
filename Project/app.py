@@ -3,7 +3,10 @@ import ibm_db
 
 app = Flask(__name__)
 
-conn = ibm_db.connect()
+conn = ibm_db.connect(
+    "DATABASE=bludb;HOSTNAME=21fecfd8-47b7-4937-840d-d791d0218660.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT"
+    "=31864;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=kzg03731;PWD=f4Jb4Y6d8YHaha5F",
+    '', '')
 autocommitstatus = ibm_db.autocommit(conn)
 
 
@@ -45,7 +48,6 @@ def addform():
         phonenumber = request.form['phonenumber']
         password1 = request.form['password1']
         password2 = request.form['password2']
-
 
         if password2 != password1:
             flag2 = True
