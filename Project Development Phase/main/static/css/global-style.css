@@ -1,0 +1,215 @@
+*{
+    font-family: Roboto, sans-serif;
+    color: #000000;
+}
+
+body {
+    background: white;
+    font-size: 1rem;
+}
+
+.fullscreen {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.bg-white {
+    background-color: white;
+    height: 4rem;
+    box-shadow: 0 1px 5px darkgray;
+}
+
+.navbar-icon, .navbar-icon:hover {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-content {
+    display: inline;
+    position: unset;
+    margin-left: 10px;
+}
+
+.nav-content-item {
+    padding: 0 10px;
+    display: inline-block;
+    position: static;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+.nav-content-item:hover {
+    color: #000000;
+    font-weight: bold;
+}
+
+.nav-content-right {
+    float: right;
+    padding-right: 20px;
+}
+
+.modal-dialog, .modal-content {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.dropdown-align {
+    padding: 0 10px;
+    display: none;
+}
+
+#NavItems {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    padding: 10px 0;
+    border: 1px solid lightgrey;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.login-header {
+    font-family: Roboto, sans-serif;
+}
+
+label .error {
+    color: #ff0000;
+    font-size: 13px;
+}
+
+.user-dropdown {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.user-dropdown .dropdown-menu.show {
+    min-width: 9.5rem;
+}
+
+input[type=password]:read-only, input[type=text]:read-only,
+input[type=tel]:read-only {
+    background: white;
+}
+
+#Password, #Confirm, #LoginPassword, #NewPassword, #NewConfirmPassword {
+    border-right: none;
+}
+
+.input-group-text {
+    width: 40px;
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.5);
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .nav-content-item {
+        display: none;
+    }
+
+    .dropdown-align {
+        display: inline-block;
+    }
+
+    .user-dropdown {
+        display: none;
+    }
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+}
+
+#spinner-button, #spinner-button1, #spinner-button2 {
+    display: none;
+}
+
+/* Password Validate Container */
+.password-validation-container {
+    width: 428px;
+    padding: 10px 0 0 10px;
+    box-shadow: 1px 2px 1px darkgrey;
+    border-radius: 10px;
+    position: absolute;
+    background: whitesmoke;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.password-validation-container:after {
+    content: '';
+    bottom: 100%;
+    left: 10%;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    border-color: transparent transparent whitesmoke transparent;
+}
+
+li {
+    font-size: 14px;
+}
+
+.li:before {
+    font: var(--fa-font-solid);
+    content: '\f00c';
+    font-size: 12px;
+    position: absolute;
+    left: 25px;
+    padding-top: 4px;
+    display: none;
+}
+
+.li.list-active, .li.list-active:before {
+    display: block;
+    color: green;
+    list-style: none;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 375px) {
+    .password-validation-container {
+        width: 250px;
+    }
+
+    h6 {
+        font-size: 13px;
+    }
+
+    li {
+        font-size: 10px;
+    }
+
+    li:before {
+        font-size: 5px;
+    }
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

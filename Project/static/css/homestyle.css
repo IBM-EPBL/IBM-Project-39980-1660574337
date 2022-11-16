@@ -1,0 +1,32 @@
+.row {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.row-width {
+    max-width: 50rem;
+}
+
+.col-sm-12 {
+    position: relative;
+    text-align: center;
+}
+
+.intro {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Container */
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 91vh;
+    padding: 16px;
+}
+
+/* Form Container */
+.container {
+    width: 600px;
+    padding: 40px 35px 30px 35px;
+    box-shadow: 1px 1px 3px lightgrey;
+    border-radius: 0.5rem;
+    border: 1px solid lightgrey;
+}
+
+.form-1 {
+    padding: 20px 50px 30px;
+}
+
+/* Form display if active */
+.form {
+    display: none;
+}
+
+.form-active {
+    display: block;
+}
+
+
+/* --- Progress Bar --- */
+/* Container */
+.progress-bar-container {
+    display: flex;
+    margin: 30px 0 50px 0;
+    user-select: none;
+}
+
+/* Width */
+.element {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Progress-bar element */
+.progress_bar {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+p {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    position: absolute;
+    top: 42px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Progress-bar active-element color */
+.progress_bar.active {
+    background: #0d6efd;
+    z-index: 1;
+}
+
+/* Progress-bar */
+.progress-bar-container .element .progress_bar:before,
+.progress-bar-container .element .progress_bar:after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 60%;
+    top: 20px;
+    right: 70%;
+    background: lightgrey;
+    z-index: -1;
+}
+
+/* Hide First Elements Progress Bar */
+.element:first-child .progress_bar:before,
+.element:first-child .progress_bar:after {
+    display: none;
+}
+
+/* Progress-bar color if active */
+.progress_bar   .active {
+    background: #0d6efd;
+}
+
+/* Previous button condition for Progress-bar */
+.progress-bar-container .element .progress_bar.inactive:after {
+    background: blue;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate2 0.2s linear reverse;
+}
+
+@keyframes animate2 {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Next button condition for Progress */
+.progress-bar-container .element .progress_bar.active:after {
+    background: blue;
+    transform: scaleX(0);
+    transform-origin: 0;
+    animation: animate 0.2s linear forwards;
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Check icon */
+.progress-bar-container .element .progress_bar .check {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: none;
+}
+
+.progress-bar-container .element .progress_bar .check.active {
+    display: block;
+}
+
+.initial, .check {
+    color: white;
+}
+
+.initial.inactive {
+    display: none;
+}
+
+/* Submission complete icon */
+.final-container {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-solid.fa-circle-check {
+    color: green;
+    font-size: 100px;
+}
+
+h4 {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    opacity: 0.7;
+}
+
+/* Form label styling */
+.form-label {
+    font-size: 14px;
+    margin-bottom: 3px;
+    white-space: pre;
+    padding-bottom: 2px;
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 425px) {
+    .progress-bar-container .element .progress_bar:before,
+    .progress-bar-container .element .progress_bar:after{
+        width: 50%;
+        right: 75%;
+    }
+
+    p {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .progress-bar-container .element .progress_bar:before,
+    .progress-bar-container .element .progress_bar:after{
+        width: 30%;
+        right: 86%;
+    }
+
+    p {
+        font-size: 7px;
+    }
+
+    .form-control, .form-label, .form-select {
+        font-size: 10px;
+    }
+
+    input[type=date] {
+        height: 26px;
+    }
+
+    .form-control:focus, .form-select:focus {
+        box-shadow: none;
+        border: 1px solid lightgrey;
+    }
+
+    label .error {
+        font-size: 6px;
+    }
+
+    .input-group-text{
+        font-size: 10px;
+    }
+
+    .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 84vh;
+        padding: 16px;
+    }
+
+    .form-1 {
+        padding: 0;
+    }
+}
+
+#previous {
+    border-radius: 0.25rem;
+    height: 100%;
+    display: flex;
+    background-color: #6c757d;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.LeftPane:hover, .LeftPane.active {
+    background-color: lightgrey;
+}
+
+.LeftPane {
+    font-size: 1.25rem;
+    padding: 5px;
+    cursor: default;
+}
+
+.table {
+    display: none;
+}
+
+.table.active {
+    display: table;
+}

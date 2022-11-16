@@ -1,0 +1,288 @@
+{% extends 'index.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint1.static', filename="css/homestyle.css") }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                    {% if 'Organisation' in session %}
+                        <a class="nav-content-item" href="{{ url_for('sprint3.donor_request') }}" id="RequestLink1">REQUEST</a>
+                    {% else %}
+                        {% if 'user' not in session %}
+                            <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#loginmodal" id="RequestLink2" data-type="AsOrg">REQUEST</a>
+                            <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#loginmodal" id="DonateLink2" data-type="AsDonor">DONATE</a>
+                        {% else %}
+                            <a class="nav-content-item" href="/donate-plasma">DONATE</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="nav-content-right">
+                {% if 'user' not in session and 'Organisation' not in session %}
+                    <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#login-as-modal" id="LoginButton">LOGIN</a>
+                    <a class="nav-content-item" id="RequestLink" data-bs-toggle="modal" data-bs-target="#Register-modal">REGISTER</a>
+                {% else %}
+                    {% if 'user' in session %}
+                        <a class="nav-content-item" href="/donor-profile">PROFILE</a>
+                        <a class="nav-content-item" href="/logout">LOGOUT</a>
+                    {% else %}
+                        <a class="nav-content-item" href="/org-profile">PROFILE</a>
+                        <a class="nav-content-item" href="/org-logout">LOGOUT</a>
+                    {% endif %}
+                {% endif %}
+
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+
+                        {% if 'Organisation' in session %}
+                            <a class="dropdown-item" href="/org-profile">PROFILE</a>
+                            <a class="dropdown-item" href="{{ url_for('sprint3.donor_request') }}" id="RequestLink1">REQUEST</a>
+                        {% else %}
+                            {% if 'user' not in session %}
+                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginmodal" id="RequestLink2">REQUEST</a>
+                                <a class="dropdown-item">DONATE</a>
+                            {% else %}
+                                <a class="dropdown-item" href="/donate-plasma">DONATE</a>
+                            {% endif %}
+                        {% endif %}
+
+                        <hr class="mb-2 mt-2">
+
+                        {% if 'user' not in session and 'Organisation' not in session %}
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#login-as-modal" id="navLogin">LOGIN</a>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Register-modal" id="navRegister">REGISTER</a>
+                        {% else %}
+                            {% if 'Organisation' in session %}
+                                <a class="dropdown-item" href="/org-logout">LOGOUT</a>
+                            {% else %}
+                                {% if 'user' in session %}
+                                    <a class="dropdown-item" href="/donor-profile">PROFILE</a>
+                                    <a class="dropdown-item" href="/logout">LOGOUT</a>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-5">
+                    <div class="modal-header">
+                        <h3 class="modal-title login-header">Login</h3>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <!--- Login form --->
+                    <form method="POST" autocomplete="off" id="loginform">
+                        <div class="modal-body">
+                            <div class="alert alert-info" type="alert" id="RequestLoginForDonorPage" style="display: none">
+                                Please login to proceed further.
+                            </div>
+                            <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <div class="pb-2">
+                                <label for="UserName" class="form-label">Username <span id="UserNameValidate"></span></label>
+                                <input class="form-control" type="email" id="UserName" name="username" placeholder="username@gmail.com">
+                            </div>
+                            <div class="pb-2">
+                                <label for="LoginPassword" class="form-label">Password <span id="LoginPasswordValidate"></span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" id="LoginPassword"  name="loginpassword" placeholder="Password">
+                                    <span class="input-group-text eye fa-solid fa-eye" id="ShowLoginPassword"></span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="/request-reset">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="d-grid gap-2 pb-2">
+                            <button class="btn btn-primary" type="submit" id="login-button">LOGIN</button>
+                            <button class="btn btn-primary" id="spinner-button" disabled>
+                                <span class="spinner-border text-light"></span>
+                            </button>
+                        </div>
+                        <span class="d-flex justify-content-center" style="white-space: pre">Don't have an account? <a href="/register">Create Account</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="login-as-modal" tabindex="-1" aria-labelledby="login-as-modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 pb-5">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Login As</h3>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row row-cols-2 pt-4">
+                            <div class="col" style="text-align: center">
+                                <div class="d-grid As gap-1" id="Login-As" data-bs-toggle="modal" data-bs-target="#loginmodal" data-type="AsDonor">
+                                    <div class="fa-solid fa-user fa-5x" style="color: rgba(117, 117, 117)"></div>
+                                        <strong style="color: rgba(117, 117, 117)">Donor</strong>
+                                </div>
+                            </div>
+                            <div class="col" style="text-align: center">
+                                <div class="d-grid As gap-1" id="Login-As" data-bs-toggle="modal" data-bs-target="#loginmodal" data-type="AsOrg">
+                                    <div class="fa-solid fa-building fa-5x" style="color: rgba(117, 117, 117)"></div>
+                                    <strong style="color: rgba(117, 117, 117)">Organisation</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="Register-modal" tabindex="-1" aria-labelledby="Register-modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-3 pb-5">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Register As</h3>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row row-cols-2 pt-4">
+                            <div class="col" style="text-align: center">
+                                <div class="d-grid As gap-1" id="Register-As" data-register-as="Donor">
+                                    <div class="fa-solid fa-user fa-5x" style="color: rgba(117, 117, 117)"></div>
+                                        <strong style="color: rgba(117, 117, 117)">Donor</strong>
+                                </div>
+                            </div>
+                            <div class="col" style="text-align: center">
+                                <div class="d-grid As gap-1" id="Register-As" data-register-as="Org">
+                                    <div class="fa-solid fa-building fa-5x" style="color: rgba(117, 117, 117)"></div>
+                                    <strong style="color: rgba(117, 117, 117)">Organisation</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-width">
+            <div class="col-sm-12 pb-3">
+                <h2 class="intro" style="color: #0a53be">IBM PLASMA DONOR<br>APPLICATION</h2>
+            </div>
+            <div class="col-sm-12">
+                <p>Let's not wait for a long time in search for a Plasma Donor. Here is the solution.
+                    We help by connecting you with all the donors available near you. You could raise a request for Plasma Requirement.
+                    Every Donor will undergo COVID-19 Test before donation.
+                </p>
+            </div>
+            <div class="row row-width">
+                <div class="col-sm-12 pb-3">
+                    <h2>Need for Plasma Donation:<br>Why?</h2>
+                </div>
+                <div class="col-sm-12">
+                    <p>The Plasma Therapy is an approach to treat the COVID-positive patients and help them to recover.
+                        Plasma Therapy is considered to be safe and promising. A person who has recovered from COVID-19 can donate his/her
+                        plasma to a person, who is infected by corona virus.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-2">
+            <div class="col-sm-12 pb-2">
+                <h2>BEING OUR USER</h2>
+            </div>
+            <div class="col-sm-6" style="text-align: center">
+                <div class="row row-width" style="padding-top: 1.5rem; max-width: 40rem">
+                    <div class="col-sm-12 pb-3">
+                        <h2>As Donor</h2>
+                    </div>
+                    <div class="col-sm-12">
+                        <p>You can register as donor. As a donor you could donate your plasma for needy.
+                            Your information will be safe. If you are interested in plasma donation you can donate by sending a request
+                            to a plasma transplant center, after approval of your request you'll be contacted by the transplant center.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" style="text-align: center">
+                <div class="row" style="padding-top: 1.5rem; max-width: 40rem">
+                    <div class="col-sm-12 pb-3">
+                        <h2>As Organisation</h2>
+                    </div>
+                    <div class="col-sm-12">
+                        <p>Signing-up as an organisation, you have to provide the required credentials. After verification of the information you
+                            provided, you'll be give a login credential via the domain mail address you have given. As organisation, you have authorisation
+                            for requesting plasma under your former donor's information & all the registered donors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-2" style="margin-bottom: 10rem; padding-top: 0">
+                <div class="col-sm-6">
+                    <div class="row row-width">
+                        <div class="col-sm-12 pb-1">
+                            <h2>Existing User ?</h2>
+                        </div>
+                        <div class="col-sm-12">
+                            <p>Login As</p>
+                        </div>
+                    </div>
+                    <div class="row row-width row-cols-2" style="padding-top: 1rem">
+                        <div class="col-sm-6" style="text-align: end">
+                            <button class="btn btn-primary" style="width: 250px!important; padding: 15px 0;border-radius: 40px" id="Login-As" data-bs-toggle="modal" data-bs-target="#loginmodal" data-type="AsDonor">
+                                Login as Donor
+                            </button>
+                        </div>
+                        <div class="col-sm-6" style="text-align: start">
+                            <button class="btn btn-primary" style="width: 250px!important; padding: 15px 0;border-radius: 40px" id="Login-As" data-bs-toggle="modal" data-bs-target="#loginmodal" data-type="AsOrg">
+                                Login as Organisation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row row-width">
+                        <div class="col-sm-12 pb-1">
+                            <h2>New User ?</h2>
+                        </div>
+                        <div class="col-sm-12">
+                            <p>Register As</p>
+                        </div>
+                    </div>
+                    <div class="row row-width row-cols-2" style="padding-top: 1rem">
+                        <div class="col-sm-6" style="text-align: end">
+                            <button class="btn btn-primary" style="width: 250px!important; padding: 15px 0;border-radius: 40px" id="Register-As" data-register-as="Donor">
+                                Register as Donor
+                            </button>
+                        </div>
+                        <div class="col-sm-6" style="text-align: start">
+                            <button class="btn btn-primary" style="width: 250px!important; padding: 15px 0;border-radius: 40px" id="Register-As" data-register-as="Org">
+                                Register as Organisation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{{ url_for('sprint1.static', filename="js/login.js") }}"></script>
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+{% endblock javascript %}

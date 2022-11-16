@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2500a55d-93a9-4dcf-b5a2-8c941433e5bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/Project Development Phase.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/Project Development Phase.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/sprint1/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/global-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/homestyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/register/request_reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/register/user_register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/brands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/brands.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/fontawesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/fontawesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/regular.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/regular.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/solid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/solid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/svg-with-js.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/svg-with-js.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-font-face.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-shims.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-shims.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v5-font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v5-font-face.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/brands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/brands.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/conflict-detection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/conflict-detection.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/fontawesome.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/fontawesome.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/regular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/regular.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/solid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/solid.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/v4-shims.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/v4-shims.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_shims.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/brands.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/fontawesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/regular.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/solid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/v4-shims.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-v4compatibility.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-v4compatibility.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/JsLocalSearch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/jquery-3.6.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sprint1/register/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sprint1/register/user_register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sweetalert.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sample.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/sample.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/password_reset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/request_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/request_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/user_registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/user_registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d940284d-7a53-41b8-b11f-3ece79ab1b2e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d940284d-7a53-41b8-b11f-3ece79ab1b2e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Mohan-M" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FTjlJ9OwqckmUnfBXrTMDz6GnZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/IBM-Project-39980-1660574337/Project&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;db2&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\IBM-Project-39980-1660574337\Project\templates" />
+      <recent name="C:\IBM-Project-39980-1660574337\Project\static\js\register" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flask server.Project">
+    <configuration name="Project" type="PythonConfigurationType" factoryName="Python">
+      <module name="Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Project" type="Python.FlaskServer">
+      <module name="Project" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2500a55d-93a9-4dcf-b5a2-8c941433e5bd" name="Changes" comment="" />
+      <created>1664523117541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664523117541</updated>
+      <workItem from="1664523128508" duration="500000" />
+      <workItem from="1664526495509" duration="1631000" />
+      <workItem from="1664550418617" duration="2620000" />
+      <workItem from="1664556286771" duration="27000" />
+      <workItem from="1664557822496" duration="38000" />
+      <workItem from="1664557872582" duration="49000" />
+      <workItem from="1664602041278" duration="595000" />
+      <workItem from="1664620571308" duration="165000" />
+      <workItem from="1664620761258" duration="1351000" />
+      <workItem from="1664633765201" duration="567000" />
+      <workItem from="1664634361951" duration="12950000" />
+      <workItem from="1664693393993" duration="33294000" />
+      <workItem from="1664784669869" duration="36954000" />
+      <workItem from="1664858284879" duration="21762000" />
+      <workItem from="1664889844169" duration="20017000" />
+      <workItem from="1664950372842" duration="2404000" />
+      <workItem from="1665027310221" duration="18341000" />
+      <workItem from="1665061279087" duration="9841000" />
+      <workItem from="1665074688889" duration="580000" />
+      <workItem from="1665075462807" duration="3282000" />
+      <workItem from="1665112446528" duration="7892000" />
+      <workItem from="1665122518801" duration="5259000" />
+      <workItem from="1665131633794" duration="9666000" />
+      <workItem from="1665150424449" duration="6227000" />
+      <workItem from="1665240104116" duration="17926000" />
+      <workItem from="1665290353837" duration="20907000" />
+      <workItem from="1665317948663" duration="21932000" />
+      <workItem from="1665374329437" duration="17953000" />
+      <workItem from="1665458501522" duration="2220000" />
+      <workItem from="1665467708964" duration="5376000" />
+      <workItem from="1665477002820" duration="1088000" />
+      <workItem from="1665496055013" duration="7437000" />
+      <workItem from="1665508396285" duration="5229000" />
+      <workItem from="1665545342826" duration="9980000" />
+      <workItem from="1665564722588" duration="6630000" />
+      <workItem from="1665572148254" duration="753000" />
+      <workItem from="1665631184822" duration="108000" />
+      <workItem from="1665631398350" duration="14587000" />
+      <workItem from="1665656863780" duration="206000" />
+      <workItem from="1665659846223" duration="18290000" />
+      <workItem from="1665682584486" duration="3119000" />
+      <workItem from="1665717683957" duration="4930000" />
+      <workItem from="1665724909873" duration="1123000" />
+      <workItem from="1665726654867" duration="6075000" />
+      <workItem from="1665804221784" duration="7638000" />
+      <workItem from="1665817687812" duration="2590000" />
+      <workItem from="1665827968449" duration="21000" />
+      <workItem from="1665932441996" duration="1988000" />
+      <workItem from="1665935639053" duration="27000" />
+      <workItem from="1665936659098" duration="631000" />
+      <workItem from="1666022719780" duration="313000" />
+      <workItem from="1666023199004" duration="390000" />
+      <workItem from="1666054114565" duration="618000" />
+      <workItem from="1666063080557" duration="2610000" />
+      <workItem from="1666069794573" duration="80000" />
+      <workItem from="1666084038959" duration="521000" />
+      <workItem from="1666084571348" duration="3279000" />
+      <workItem from="1666088267695" duration="8000" />
+      <workItem from="1666099071984" duration="1862000" />
+      <workItem from="1666103979644" duration="1133000" />
+      <workItem from="1666361572306" duration="2578000" />
+      <workItem from="1666367519996" duration="6483000" />
+      <workItem from="1666413895422" duration="8325000" />
+      <workItem from="1666451668932" duration="3468000" />
+      <workItem from="1666498202140" duration="9000" />
+      <workItem from="1666515045797" duration="2705000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project$Project.coverage" NAME="Project Coverage Results" MODIFIED="1665512927825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

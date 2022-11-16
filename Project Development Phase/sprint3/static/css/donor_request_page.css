@@ -1,0 +1,124 @@
+table {
+    border-width: 1px;
+    border-style: solid;
+    border-spacing: 0;
+}
+
+.table {
+    border-collapse: separate;
+    border-top-color: lightgrey;
+    text-align: center;
+}
+
+thead {
+    border: 1px solid black;
+}
+
+tbody th {
+    font-weight: normal;
+}
+
+.customized-dropdown-button {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    text-align: start;
+}
+
+#DropdownProperty:hover, #DropdownProperty:active {
+    background-color: transparent;
+    cursor: initial;
+}
+
+input[type=search]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.filterTags {
+    background-color: #ced4da;
+    width: fit-content;
+    padding: 3px 15px;
+    border-radius: 20px;
+}
+
+span {
+    height: fit-content;
+    line-height: 1.5;
+}
+
+.swal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.swal2-confirm:focus {
+    box-shadow: none !important;
+}
+
+.pageIndex {
+    border: 1px solid rgba(117, 117, 117, 0.7);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.pageIndex:focus-visible {
+    outline: rgba(117, 117, 117, 0.7) !important;
+}
+
+.pageIndex span {
+    color: rgba(117, 117, 117, 0.7);
+}
+
+.pageIndex.active:hover {
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 40%);
+}
+
+.pageIndex.inactive {
+    display: none;
+}
+
+::-webkit-search-cancel-button {
+    display: none;
+}
+
+.table {
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 10%);
+}
+
+.form-check-input {
+    border-width: 2px;
+}
+
+.filter-button {
+    background-color: var(--bs-gray-600);
+    border-color: var(--bs-gray-600);
+}
+
+.filter-button:hover,
+.filter-button:active,
+.filter-button:focus,
+.filter-button:focus-visible {
+    background-color: var(--bs-gray-500) !important;
+    border-color: var(--bs-gray-500) !important;
+}
+
+.customToolTip {
+    --bs-tooltip-bg: var(--bs-gray-600);
+}

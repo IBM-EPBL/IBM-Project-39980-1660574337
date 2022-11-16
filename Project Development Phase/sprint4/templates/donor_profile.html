@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+{% block title %}Admin{% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                    <a class="nav-content-item" href="{{ url_for('sprint4.donate') }}">DONATE</a>
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" href="/logout">LOGOUT</a>
+
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                        <a class="dropdown-item" href="{{ url_for('sprint4.donate') }}">DONATE</a>
+                        <hr class="mb-2 mt-2">
+                        <a class="dropdown-item" href="/logout">LOGOUT</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-4 mb-4" style="height: 84vh; box-shadow: 0 3px 8px rgba(0, 0, 0, 30%)">
+            <div class="container w-25" style="height: 84vh; float: left; border-right: 1px solid darkgray">
+                <div class="d-grid gap-1 mt-5" style="text-align: center">
+                    <span class="fa-solid fa-circle-user" style="color: rgba(0,0,0,0.3); border-radius: 50%; font-size: 200px"></span>
+                    <strong style="font-size: 2rem">{{ session['user'] }}</strong>
+                    <span>mailaddress@gmail.com</span>
+                    <span>+91 XXX-XXX-XXXX</span>
+                </div>
+            </div>
+            <div class="container w-75" style="height: 84vh; float: left; padding: 40px 30px 20px">
+                <div class="container mb-2" style="height: 37vh; overflow: scroll">
+                    <table class="table" style="text-align: center;border: 1px solid lightgrey" id="AdminTable1">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Organisation Name</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="StatusTable">
+                            {% for row in res %}
+                                <tr>
+                                    <td>{{ res.index(row) + 1 }}</td>
+                                    <td>{{ row['ORG_NAME'] }}</td>
+                                    <td>{{ row['REQUEST_STATUS'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container" style="height: 36vh; overflow: scroll">
+                    <table class="table table-sm" style="text-align: center;border: 1px solid lightgrey">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Organisation Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="CancelReq">
+                            {% for row in res %}
+                                {% if row['REQUEST_STATUS'] == 'PENDING' %}
+                                    <tr>
+                                        <td>{{ res.index(row) + 1 }}</td>
+                                        <td>{{ row['ORG_NAME'] }}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-light" id="CancelButton" data-org-email="{{ row['ORG_EMAIL'] }}" style="box-shadow: 0 0 2px rgba(0,0,0,40%)">Cancel</button>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="bg-spin" style="position: absolute; top: 0; bottom: 0; background-color: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center">
+            <span class="spinner-border text-light" style="width: 2.5rem; height: 2.5rem;   --bs-spinner-border-width: 0.35rem;"></span>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint4.static', filename="js/donate.js") }}"></script>
+{% endblock javascript %}

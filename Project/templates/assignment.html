@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block title %}Assignment-3{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/assignment.css">
+{% endblock style %}
+
+{% block content %}
+    <h2 style="color: white; top:40%; left: 10%; position: absolute; font-weight: bold">IBM Watson Assistant To Find<br>Near-by Hospital Branches.</h2>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "ffb79f9e-6e80-4fa6-a8f6-ec28152ab156", // The ID of this integration.
+    region: "jp-tok", // The region your integration is hosted in.
+    serviceInstanceID: "73e8c5b6-af28-4f00-9a9a-34e68f0dfbd5", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+{% endblock javascript %}

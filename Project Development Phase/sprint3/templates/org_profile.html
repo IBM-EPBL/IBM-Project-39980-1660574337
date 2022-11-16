@@ -1,0 +1,166 @@
+{% extends 'index.html' %}
+{% block title %}Admin{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint3.static', filename="css/org.css") }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                    <a class="nav-content-item" style="pointer-events: none" href="{{ url_for('sprint3.donor_request') }}">REQUEST</a>
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" href="/org-logout">LOGOUT</a>
+
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                        <a class="dropdown-item" href="#">REQUEST</a>
+                        <hr class="mb-2 mt-2">
+                        <a class="dropdown-item" href="/org-logout">LOGOUT</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="height: 91vh; box-shadow: 0 3px 8px rgba(0, 0, 0, 30%)">
+            <div class="container pe-0 ps-0" style="height: 91vh; float: left; border-right: 1px solid lightgrey; width: 20%; overflow: scroll">
+                <div class="d-grid gap-1 mt-3">
+                    <strong class="ps-2" style="font-size: 1.5rem; padding: 0 10px;">{{ details }}</strong>
+                    <hr class="mt-2">
+                    <p class="ps-2 mb-1 LeftPane active" id="LP1">Dashboard</p>
+                    <p class="ps-2 mt-0 mb-1 LeftPane" id="LP2">Donors</p>
+                    <p class="ps-2 mt-0 LeftPane" id="LP3">Register Donor</p>
+                </div>
+            </div>
+            <div class="container Tab active" style="width: 80%; height: 91vh; float: left; overflow: scroll; padding: 25px 30px" id="Tab1">
+                <div class="p-2 float-start">
+                    <div class="row row-cols-2">
+                        <div class="col pe-0" style="margin: auto">
+                            <label for="OrgTableFilter">Blood Group:</label>
+                        </div>
+                        <div class="col ps-1">
+                            <select class="form-select" id="OrgTableFilter">
+                                <option selected value="all">All</option>
+                                <option value="A+ve">A+ve</option>
+                                <option value="A-ve">A-ve</option>
+                                <option value="B+ve">B+ve</option>
+                                <option value="B-ve">B-ve</option>
+                                <option value="O+ve">O+ve</option>
+                                <option value="O-ve">O-ve</option>
+                                <option value="AB+ve">AB+ve</option>
+                                <option value="AB-ve">AB-ve</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 float-end" style="width: 400px">
+                    <input type="search" class="form-control" id="OrgReqSearch" aria-label="OrgReqSearch" placeholder="Search">
+                </div>
+                <div class="container p-0" style="width: 99% ;height: fit-content;; max-height: 76vh; border: 1px solid lightgrey; overflow: scroll">
+                    <table class="table Table1 active mb-0" style="text-align: center">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Donor Name</th>
+                                <th scope="col">Donor Blood-Group</th>
+                                <th scope="col" colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Table1">
+                            {% for row in res %}
+                                <tr>
+                                    <td>{{ res.index(row) + 1 }}</td>
+                                    <td>{{ row['DONOR_NAME'] }}</td>
+                                    <td>{{ row['DONOR_BLOODGROUP'] }}</td>
+                                    <td>
+                                        <button class="btn actionBtn btn-sm btn-primary me-1" data-donor-name="{{ row['DONOR_NAME'] }}" data-donor-email="{{ row['DONOR_EMAIL'] }}" id="AccpBtn">Accept</button>
+                                        <button class="btn actionBtn btn-sm btn-light" style="box-shadow: 0 0 3px rgba(0,0,0,40%)" data-donor-name="{{ row['DONOR_NAME'] }}" data-donor-email="{{ row['DONOR_EMAIL'] }}" id="declineBtn">Decline</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <table class="table Table2 mb-0" style="text-align: center">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Donor Name</th>
+                                <th scope="col">Blood-Group</th>
+                                <th scope="col">PHONE NUMBER</th>
+                                <th scope="col">EMAIL</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="Table2">
+                            {% for donor in donors %}
+                                <tr>
+                                    <td>{{ donors.index(donor) + 1 }}</td>
+                                    <td>{{ donor['FNAME'] + ' ' + donor['LNAME'] }}</td>
+                                    <td>{{ donor['BLOODGROUP'] }}</td>
+                                    <td>{{ donor['PHONENUMBER'] }}</td>
+                                    <td>{{ donor['EMAIL'] }}</td>
+                                    <td>
+                                        <button class="btn actionBtn btn-sm btn-primary" data-donor-email="{{ donor['EMAIL'] }}" id="ReqBtn">Request</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="container Tab" style="width: 80%; height: 91vh; float: left; overflow: scroll; padding: 25px 30px" id="Tab2">
+                <div class="container w-50" style="min-height: 76vh; border: 1px solid lightgrey; padding: 70px 40px 20px">
+                    <form method="POST" id="OrgDonorRegisterForm" autocomplete="off">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <label class="form-label mb-1" for="FirstName">Donor's First Name</label>
+                        <input type="text" class="form-control mb-2" name="fname" id="FirstName" required>
+                        <label class="form-label mb-1" for="LastName">Donor's Last Name</label>
+                        <input type="text" class="form-control mb-2" name="lname" id="LastName" required>
+                        <label for="BloodGroup" class="form-label mb-1">Donor's Blood Group</label>
+                        <select class="form-select mb-2" id="BloodGroup" name="b_group" required>
+                            <option selected value="all">All</option>
+                            <option value="A+ve">A+ve</option>
+                            <option value="A-ve">A-ve</option>
+                            <option value="B+ve">B+ve</option>
+                            <option value="B-ve">B-ve</option>
+                            <option value="O+ve">O+ve</option>
+                            <option value="O-ve">O-ve</option>
+                            <option value="AB+ve">AB+ve</option>
+                            <option value="AB-ve">AB-ve</option>
+                        </select>
+                        <label class="form-label mb-1" for="Email">Donor's Email</label>
+                        <input type="email" class="form-control mb-2" name="email" id="Email" required>
+                        <label class="form-label mb-1" for="ContactNo">Donor's Phone Number</label>
+                        <input type="tel" class="form-control mb-2" name="contact" id="ContactNo" required>
+                        <hr>
+                        <div class="d-grid">
+                            <button class="btn btn-primary" type="submit">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint3.static', filename="js/org_profile.js") }}"></script>
+{% endblock javascript %}

@@ -1,0 +1,40 @@
+.row {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.row-width {
+    max-width: 50rem;
+}
+
+.col-sm-12 {
+    position: relative;
+    text-align: center;
+}
+
+.intro {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.As{
+    border: 1px solid darkgray;
+    border-radius: 0.75rem;
+    padding: 40px 0 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.As:hover {
+    box-shadow: 0 0 7px rgba(117,117,117,40%);
+}
