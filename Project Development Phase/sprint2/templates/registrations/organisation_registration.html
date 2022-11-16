@@ -1,0 +1,183 @@
+{% extends 'index.html' %}
+{% block title %}Signup{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint2.static', filename='css/organisation_registration.css') }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                    {% if 'Organisation' in session %}
+                        <a class="nav-content-item" href="{{ url_for('sprint2.donor_request') }}" id="RequestLink1">REQUEST</a>
+                    {% else %}
+                        <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#loginmodal" id="RequestLink2">REQUEST</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#loginmodal">LOGIN</a>
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="#">HOME</a>
+                        {% if 'Organisation' in session %}
+                            <a class="dropdown-item" href="{{ url_for('sprint2.donor_request') }}" id="RequestLink1">REQUEST</a>
+                        {% else %}
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginmodal" id="RequestLink2">REQUEST</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="#">ABOUT</a>
+                        <hr class="mb-2 mt-2">
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginmodal">LOGIN</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-5">
+                    <div class="modal-header">
+                        <h3 class="modal-title login-header">Login</h3>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <!--- Login form --->
+                    <form method="POST" autocomplete="off" id="loginform">
+                        <div class="modal-body">
+                            <div class="alert alert-info" type="alert" id="RequestLoginForDonorPage" style="display: none">
+                                Please login to proceed further.
+                            </div>
+                            <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <div class="pb-2">
+                                <label for="UserName" class="form-label">Username <span id="UserNameValidate"></span></label>
+                                <input class="form-control" type="email" id="UserName" name="username" placeholder="username@gmail.com">
+                            </div>
+                            <div class="pb-2">
+                                <label for="LoginPassword" class="form-label">Password <span id="LoginPasswordValidate"></span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" id="LoginPassword"  name="loginpassword" placeholder="Password">
+                                    <span class="input-group-text eye fa-solid fa-eye" id="ShowLoginPassword"></span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="/request-reset">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="d-grid gap-2 pb-2">
+                            <button class="btn btn-primary" type="submit" id="login-button" data-userinfo="AsOrg">LOGIN</button>
+                            <button class="btn btn-primary" id="spinner-button" disabled>
+                                <span class="spinner-border text-light"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2 mb-2 w-50" style="padding: 35px 30px 25px; border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.2)">
+            <form method="POST" id="Organisation-Signup-Form" autocomplete="off">
+                <h2 style="text-align: center">Signup</h2>
+                <hr class="mb-4">
+                <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="row row-cols-2">
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationName" class="form-label" style="width: 100%">Organisation Name
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_name" id="OrganisationName" required>
+                    </div>
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationEmail" class="form-label" style="width: 100%">Organisation Email
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="email" name="org_email" id="OrganisationEmail" required>
+                    </div>
+                    <div class="col-4" style="margin: auto 0">
+                        <label for="OrganisationContact" class="form-label" style="width: 100%">Organisation Contact No.
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8" style="margin: auto 0">
+                        <input class="form-control" type="tel" name="org_contact" id="OrganisationContact" required>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                        <span id="OrganisationContactValidate"></span>
+                    </div>
+                    <div class="col-4 mt-3 mb-3" style="margin: auto 0">
+                        <label for="OrganisationAddress" class="form-label" style="width: 100%">Address
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mt-3 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_address" id="OrganisationAddress" required>
+                    </div>
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationLocality" class="form-label" style="width: 100%">Locality
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_locality" id="OrganisationLocality" required>
+                    </div>
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationCity" class="form-label" style="width: 100%">City
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_city" id="OrganisationCity" required>
+                    </div>
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationState" class="form-label" style="width: 100%">State
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_state" id="OrganisationState" required>
+                    </div>
+                    <div class="col-4 mb-3" style="margin: auto 0">
+                        <label for="OrganisationPincode" class="form-label" style="width: 100%">Pincode
+                            <span style="float: right">:</span>
+                        </label>
+                    </div>
+                    <div class="col-8 mb-3" style="margin: auto 0">
+                        <input class="form-control" type="text" name="org_pincode" id="OrganisationPincode" required>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                        <span id="OrganisationContactValidate"></span>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint2.static', filename="js/organisation_registration.js") }}"></script>
+    <script src="{{ url_for('sprint1.static', filename="js/login.js") }}"></script>
+{% endblock javascript %}

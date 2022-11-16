@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+{% block title %}Request Reset-Form{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint2.static', filename="css/request_reset.css") }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                    <a class="nav-content-item" href="#">REQUEST</a>
+                    <a class="nav-content-item" href="#">ABOUT</a>
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" data-bs-toggle="modal" data-bs-target="#loginmodal">LOGIN</a>
+                <a class="nav-content-item" href="/register">REGISTER</a>
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                        <a class="dropdown-item" href="#">REQUEST</a>
+                        <a class="dropdown-item" href="#">ABOUT</a>
+                        <hr class="mb-2 mt-2">
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginmodal">LOGIN</a>
+                        <a class="dropdown-item" href="/register">REGISTER</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--- Login Modal --->
+        <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-5">
+                    <div class="modal-header">
+                        <h3 class="modal-title login-header">Login</h3>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    <!--- Login Form --->
+                    <form method="POST" autocomplete="off" id="loginform">
+                        <div class="modal-body">
+                            <div class="alert alert-info" type="alert" id="RequestLoginForDonorPage" style="display: none">
+                                Please login to proceed to Request page.
+                            </div>
+                            <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <div class="pb-2">
+                                <label for="UserName" class="form-label">Username <span id="UserNameValidate"></span></label>
+                                <input class="form-control" type="email" id="UserName" name="username" placeholder="username@gmail.com">
+                            </div>
+                            <div class="pb-2">
+                                <label for="LoginPassword" class="form-label">Password <span id="LoginPasswordValidate"></span></label>
+                                <div class="input-group">
+                                    <input class="form-control" type="password" id="LoginPassword"  name="loginpassword" placeholder="Password">
+                                    <span class="input-group-text eye fa-solid fa-eye" id="ShowLoginPassword"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-0">
+                        <div class="d-grid gap-2 pb-2">
+                            <button class="btn btn-primary" type="submit" id="login-button">LOGIN</button>
+                            <button class="btn btn-primary" id="spinner-button" disabled>
+                                <span class="spinner-border text-light"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--- Reset Form ---->
+        <div class="container-fluid">
+            <div class="container">
+                <form method="POST" autocomplete="off" id="reset-form">
+                    <h2>Reset Password</h2>
+                    <hr>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <!--- Message for link sent successfully --->
+                    <div class="alert alert-success" role="alert" style="display: none">We have sent a reset link to your email.</div>
+                    <!--- Invalid User Warning --->
+                    <div class="alert alert-warning" role="alert" style="display: none">
+                        Kindly check your e-mail address. It seems like you haven't registered yet. If you didn't,<a href="#" id="reset-register">Register Here</a>.
+                    </div>
+                    <!--- Invalid Token Warning --->
+                    <div class="alert alert-warning" role="alert" style="display: none">Invalid token or token has been expired. Request a new link to reset your password.</div>
+
+                    <label class="form-label" for="e-mail">To reset your password kindly provide your e-mail address.</label>
+                    <input class="form-control" id="e-mail" type="email" name="email" required>
+
+                    <button class="btn btn-primary mt-2" type="submit" style="width: 5rem" id="reset-button">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint2.static', filename="js/user_register.js") }}"></script>
+    <script src="{{ url_for('sprint1.static', filename="js/login.js") }}"></script>
+{% endblock javascript %}

@@ -2,16 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2500a55d-93a9-4dcf-b5a2-8c941433e5bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/password_reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/request_reset_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/user_registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/Project Development Phase.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/Project Development Phase.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/sprint1/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/global-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/homestyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/register/request_reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/css/sprint1/register/user_register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/brands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/brands.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/fontawesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/fontawesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/regular.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/regular.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/solid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/solid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/svg-with-js.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/svg-with-js.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-font-face.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-shims.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v4-shims.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v5-font-face.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/css/v5-font-face.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/brands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/brands.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/conflict-detection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/conflict-detection.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/fontawesome.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/fontawesome.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/regular.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/regular.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/solid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/solid.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/v4-shims.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/js/v4-shims.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_shims.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/brands.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/fontawesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/regular.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/solid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/scss/v4-shims.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-v4compatibility.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/font_awesome/webfonts/fa-v4compatibility.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/JsLocalSearch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/jquery-3.6.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sprint1/register/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sprint1/register/user_register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/static/js/sweetalert.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sample.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/sample.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/password_reset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/request_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/request_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project Development Phase/templates/sprint1/registrations/user_registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Project Development Phase/sprint1/templates/registrations/user_registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d940284d-7a53-41b8-b11f-3ece79ab1b2e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d940284d-7a53-41b8-b11f-3ece79ab1b2e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/homestyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/homestyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/register/user_register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/register/user_register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registrations/user_registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registrations/user_registration.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +292,9 @@
       <workItem from="1666361572306" duration="2578000" />
       <workItem from="1666367519996" duration="6483000" />
       <workItem from="1666413895422" duration="8325000" />
+      <workItem from="1666451668932" duration="3468000" />
+      <workItem from="1666498202140" duration="9000" />
+      <workItem from="1666515045797" duration="2705000" />
     </task>
     <servers />
   </component>

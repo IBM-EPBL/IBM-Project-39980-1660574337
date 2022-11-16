@@ -296,3 +296,11 @@ def get_bucket_contents(bucket_name):
         print("CLIENT ERROR: {0}\n".format(be))
     except Exception as e:
         print("Unable to retrieve bucket contents: {0}".format(e))
+
+
+@app.route('/resume', methods=['GET', 'POST'])
+def resume():
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('resume.html')

@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+{% block title %}Administrator Login{% endblock title %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid" style="position: absolute; height: 91vh; width: 100%; display: flex; justify-content: center; align-items: center">
+            <div class="container" style="width: 450px; border: 1px solid lightgrey; padding: 40px 40px 30px; border-radius: 0.5rem">
+                <form method="POST" autocomplete="off" id="loginform">
+                    <h2 style="font-family: Roboto, sans-serif">Login</h2>
+                    <hr>
+                    <div class="alert alert-info" type="alert" id="RequestLoginForDonorPage" style="display: none">
+                        Please login to proceed to Request page.
+                    </div>
+                    <input class="ignore" type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="pb-2">
+                        <label for="UserName" class="form-label">Username <span id="UserNameValidate"></span></label>
+                        <input class="form-control" type="email" id="UserName" name="username" placeholder="username@gmail.com">
+                    </div>
+                    <div class="pb-2">
+                        <label for="LoginPassword" class="form-label">Password <span id="LoginPasswordValidate"></span></label>
+                        <div class="input-group">
+                            <input class="form-control" type="password" id="LoginPassword"  name="loginpassword" placeholder="Password">
+                            <span class="input-group-text eye fa-solid fa-eye" id="ShowLoginPassword"></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 pb-2">
+                        <button class="btn btn-primary" type="submit" id="login-button">LOGIN</button>
+                        <button class="btn btn-primary" id="spinner-button" disabled>
+                            <span class="spinner-border text-light"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint1.static', filename="js/login.js") }}"></script>
+{% endblock javascript %}

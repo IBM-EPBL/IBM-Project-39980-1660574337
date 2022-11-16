@@ -1,0 +1,167 @@
+{% extends 'index.html' %}
+{% block title %}Request For Plasma{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint3.static', filename='css/donor_request_page.css') }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" href="/org-profile">PROFILE</a>
+                <a class="nav-content-item" href="/org-logout">LOGOUT</a>
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                        <hr class="mb-2 mt-2">
+                        <a class="dropdown-item" href="/org-profile">PROFILE</a>
+                        <a class="dropdown-item" href="/org-logout">LOGOUT</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-3">
+            <div class="float-start mb-3" style="width: fit-content">
+                <div class="row row-cols-4">
+                    <div class="col pe-0" style="width: fit-content; display: flex; align-items: center">
+                        <label for="show-entries">Show Entries:</label>
+                    </div>
+                    <div class="col" style="width: fit-content">
+                        <select class="form-select FILTER" id="show-entries">
+                            <option selected value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                    <div class="col" style="width: fit-content">
+                        <a class="btn btn-secondary filter-button" data-bs-toggle="offcanvas" href="#filterCanvas" aria-controls="filterCanvas">Filter by</a>
+                    </div>
+                </div>
+            </div>
+            <div class="float-end mb-3">
+                <div class="row row-cols-2">
+                    <div class="col" style="width: 400px">
+                        <input class="form-control" type="search" placeholder="Search.." aria-label="Search" id="Search">
+                    </div>
+                    <div class="col" style="width: fit-content">
+                        <button class="btn btn-primary" id="SendRequestButton">Request</button>
+                    </div>
+                </div>
+            </div>
+            <!--- Offcanvas Filter ---->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="filterCanvas">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">FILTERS</h5>
+                    <button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <hr class="m-0">
+                <div class="offcanvas-body">
+                    <!--- Blood Group --->
+                    <div class="mb-2">
+                        <label class="form-label" for="Filter_BloodGroup" style="font-weight: bold; color: rgba(117, 117, 117, 1)">Blood Group:</label>
+                        <div class="customized-dropdown-button" data-bs-toggle="dropdown" id="Filter_BloodGroup" style="cursor: pointer">---</div>
+                        <div class="dropdown-menu" aria-labelledby="Filter_BloodGroup">
+                            {% for b_group in b_groups %}
+                                <div class="dropdown-item" id="DropdownProperty">
+                                    <input class="form-check-input" type="checkbox" value="{{ b_group }}" id="BloodGroupCheckBox" style="cursor: pointer">
+                                    <label class="form-check-label" for="BloodGroupCheckBox">{{ b_group }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!--- State --->
+                    <div class="mb-2">
+                        <label class="form-label" for="Filter_State" style="font-weight: bold; color: rgba(117, 117, 117, 1)">State:</label>
+                        <select class="form-select FILTER" id="Filter_State" name="state">
+                            <option value="all">All</option>
+                            {% for state in states %}
+                                <option value="{{ state }}">{{ state }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!--- City --->
+                    <div class="mb-2">
+                        <label class="form-label" for="Filter_City" style="font-weight: bold; color: rgba(117, 117, 117, 1)">City:</label>
+                        <select class="form-select FILTER" id="Filter_City" aria-label="Filter_City">
+                            <option value="all" id="Filtered" selected>All</option>
+                            {% for city in cities %}
+                                <option value="{{ city }}" id="Before">{{ city }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover" id="DonorTable">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="TableSelectAll" aria-label="TableSelectAll">
+                            </div>
+                        </th>
+                        <th class="col">S.No</th>
+                        <th class="col">Name</th>
+                        <th class="col">Blood Group</th>
+                        <th class="col">Email</th>
+                        <th class="col">Phone Number</th>
+                        <th class="col">City</th>
+                        <th class="col">State</th>
+                    </tr>
+                </thead>
+                <tbody id="TableContent">
+                    {% for row in res %}
+                        <tr>
+                            <th>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ row['EMAIL'] }}" id="TableData" aria-label="TableData">
+                                </div>
+                            </th>
+                            <td>{{ res.index(row) + 1 }}</td>
+                            <td>{{ row['FIRSTNAME'] + ' ' + row['LASTNAME'] }}</td>
+                            <td>{{ row['BLOODGROUP'] }}</td>
+                            <td>{{ row['EMAIL'] }}</td>
+                            <td>{{ row['PHONENUMBER'] }}</td>
+                            <td>{{ row['CITY'] }}</td>
+                            <td>{{ row['STATE'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div style="display: flex; float: right; width: fit-content">
+                <div class="pageIndex me-1" style="text-decoration: none" data-page="1" id="PrevPage" data-bs-toggle="tooltip" data-bs-custom-class="customToolTip" data-bs-placement="left" data-bs-title="Previous Page">
+                    <span class="fa-solid fa-angle-left"></span>
+                </div>
+                <div class="pageIndex ms-1 active" style="text-decoration: none" data-page="1" id="NextPage" data-bs-toggle="tooltip" data-bs-custom-class="customToolTip" data-bs-placement="right" data-bs-title="Next Page">
+                    <span class="fa-solid fa-angle-right"></span>
+                </div>
+            </div>
+            <div style="display: flex; float: left; width: fit-content">
+                <span id="Showing-entries"></span>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{{ url_for('sprint3.static', filename="js/donor_request.js") }}"></script>
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+{% endblock javascript %}

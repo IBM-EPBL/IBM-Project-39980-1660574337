@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+{% block title %}Donate Plasma{% endblock title %}
+
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+                <div class="nav-content">
+                    <a class="nav-content-item" href="{{ url_for('sprint1.home') }}">HOME</a>
+                </div>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" href="{{ url_for('sprint4.donor_profile') }}">PROFILE</a>
+                <a class="nav-content-item" href="/logout">LOGOUT</a>
+            </div>
+        </nav>
+        <div class="container p-5" style="height: 91vh; overflow: scroll">
+            <div class="row row-cols-3 mb-4">
+                <div class="col">
+                    <label for="DonorStateFilter" class="form-label">State</label>
+                    <select class="form-select DonoteFilter" id="DonorStateFilter">
+                        <option selected value="all">All</option>
+                        {% for state in states %}
+                            <option value="{{ state }}">{{ state }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="DonorCityFilter" class="form-label">City</label>
+                    <select class="form-select DonoteFilter" id="DonorCityFilter">
+                        <option selected value="all">All</option>
+                        {% for city in cities %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="DonorLocalityFilter" class="form-label">Locality</label>
+                    <select class="form-select DonoteFilter" id="DonorLocalityFilter">
+                        <option selected value="all">All</option>
+                        {% for local in locality %}
+                            <option value="{{ local }}">{{ local }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="container w-50 mb-3">
+                <div class="row row-cols-2">
+                    <div class="col-2 pe-0" style="margin: auto 0; text-align: right">
+                        <label for="OrgSearch">Search:</label>
+                    </div>
+                    <div class="col-10">
+                        <input type="search" class="form-control" id="OrgSearch" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+            <table class="table" style="text-align: center;border: 1px solid lightgrey">
+                <thead class="table-secondary">
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Organisation Name</th>
+                        <th scope="col">Locality</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Pincode</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="TableData">
+                    {% for row in res %}
+                        <tr>
+                            <td style="margin: auto 0">{{ res.index(row) + 1 }}</td>
+                            <td>{{ row['NAME'] }}</td>
+                            <td>{{ row['LOCALITY'] }}</td>
+                            <td>{{ row['CITY'] }}</td>
+                            <td>{{ row['STATE'] }}</td>
+                            <td>{{ row['PINCODE'] }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" id="DonateButton" data-name="{{ row['NAME'] }}" data-email="{{ row['EMAIL'] }}">Donate</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid" id="bg-spin" style="position: absolute; top: 0; bottom: 0; background-color: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center">
+            <span class="spinner-border text-light" style="width: 2.5rem; height: 2.5rem;   --bs-spinner-border-width: 0.35rem;"></span>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{{ url_for('sprint4.static', filename="js/donate.js") }}"></script>
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+{% endblock javascript %}

@@ -1,0 +1,179 @@
+{% extends 'index.html' %}
+{% block title %}ADMINISTRATOR{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('sprint2.static', filename="css/administrator.css") }}">
+{% endblock style %}
+
+{% block content %}
+    <div class="fullscreen">
+        <nav class="navbar bg-white">
+            <div class="ps-3">
+                <a class="navbar-icon" href="{{ url_for('sprint1.home') }}">Plasma Donor</a>
+            </div>
+            <div class="nav-content-right">
+                <a class="nav-content-item" href="/admin-logout">LOGOUT</a>
+                <div class="dropstart dropdown-align">
+                    <a class="fa-solid fa-bars" data-bs-toggle="dropdown" id="NavItems"></a>
+                    <div class="dropdown-menu" aria-labelledby="NavItems">
+                        <a class="dropdown-item" href="/admin-logout">LOGOUT</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="height: 91vh; box-shadow: 0 3px 8px rgba(0, 0, 0, 30%)">
+            <div class="container ps-0 pe-0" style="width: 20%;height: 91vh;float: left; border-right: 2px solid lightgrey;overflow: scroll">
+                <div class="d-grid gap-1 mt-3">
+                    <strong class="ps-2" style="font-size: 1.5rem; padding: 0 10px;">Administrator</strong>
+                    <hr class="mt-2">
+                    <p class="ps-2 mb-1 LeftPane active" id="LP1">Dashboard</p>
+                    <p class="ps-2 mt-0 mb-1 LeftPane" id="LP2">Approved</p>
+                    <p class="ps-2 mt-0 LeftPane" id="LP3">Declined</p>
+                </div>
+            </div>
+            <div class="container" style="width: 80%;height: 91vh;float: left; padding: 25px 30px; overflow: scroll">
+                <div class="p-2 float-end" style="width: 400px">
+                    <input type="search" class="form-control" id="OrgReqSearch" aria-label="OrgReqSearch" placeholder="Search">
+                </div>
+                <div class="container p-0" style="width: 99% ; height: fit-content;max-height: 76vh; border: 1px solid lightgrey; overflow: scroll">
+                    <table class="table Table1 active mb-0" style="text-align: center; box-shadow: 1px 5px 7px rgba(0,0,0, 10%)">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col" style="width: 7rem">S.No</th>
+                                <th scope="col">Organisation Name</th>
+                                <th scope="col" style="width: 15rem">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Table1">
+                            {% for row in res %}
+                                <tr id="{{ 'ID'+res.index(row)|string }}">
+                                    <td>{{ res.index(row) + 1 }}</td>
+                                    <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="{{ '#Data'+res.index(row)|string }}">{{ row['NAME'] }}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm Action" id="ApproveButton" data-email="{{ row['EMAIL'] }}" data-index="{{ res.index(row) }}">Approve</button>
+                                        <button class="btn btn-secondary btn-sm Action" id="DeclineButton" data-email="{{ row['EMAIL'] }}"  data-index="{{ res.index(row) }}">Decline</button>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="{{ 'Data'+res.index(row)|string }}" tabindex="-1" aria-labelledby="{{ res.index(row)|string+'Label' }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content p-5">
+                                            <div class="modal-header">
+                                                <strong style="font-size: 1.25rem">Organisation Details</strong>
+                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="d-grid gap-1">
+                                                    <span><strong>Organisation Name: </strong>{{ row['NAME'] }}</span>
+                                                    <span><strong>Email: </strong>{{ row['EMAIL'] }}</span>
+                                                    <span><strong>Contact No: </strong>{{ row['CONTACT'] }}</span>
+                                                    <span><strong>Locality: </strong>{{ row['LOCALITY'] }}</span>
+                                                    <span><strong>City: </strong>{{ row['CITY'] }}</span>
+                                                    <span><strong>State: </strong>{{ row['STATE'] }}</span>
+                                                    <span><strong>Address: </strong>{{ row['ADDRESS'] }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <table class="table Table2 mb-0" style="text-align: center; box-shadow: 1px 5px 7px rgba(0,0,0, 10%)">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col" style="width: 7rem">S.No</th>
+                                <th scope="col">Organisation Name</th>
+                                <th scope="col" style="width: 15rem">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Table2">
+                            {% for row in approved %}
+                                <tr id="{{ 'ID'+approved.index(row)|string }}">
+                                    <td>{{ approved.index(row) + 1 }}</td>
+                                    <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="{{ '#Data'+approved.index(row)|string }}">{{ row['NAME'] }}</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <div class="modal fade" id="{{ 'Data'+approved.index(row)|string }}" tabindex="-1" aria-labelledby="{{ approved.index(row)|string+'Label' }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content p-5">
+                                            <div class="modal-header">
+                                                <strong style="font-size: 1.25rem">Organisation Details</strong>
+                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="d-grid gap-1">
+                                                    <span><strong>Organisation Name: </strong>{{ row['NAME'] }}</span>
+                                                    <span><strong>Email: </strong>{{ row['EMAIL'] }}</span>
+                                                    <span><strong>Contact No: </strong>{{ row['CONTACT'] }}</span>
+                                                    <span><strong>Locality: </strong>{{ row['LOCALITY'] }}</span>
+                                                    <span><strong>City: </strong>{{ row['CITY'] }}</span>
+                                                    <span><strong>State: </strong>{{ row['STATE'] }}</span>
+                                                    <span><strong>Address: </strong>{{ row['ADDRESS'] }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <table class="table Table3 mb-0" style="text-align: center; box-shadow: 1px 5px 7px rgba(0,0,0, 10%)">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th scope="col" style="width: 7rem">S.No</th>
+                                <th scope="col">Organisation Name</th>
+                                <th scope="col" style="width: 15rem">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Table3">
+                            {% for row in declined %}
+                                <tr id="{{ 'ID'+declined.index(row)|string }}">
+                                    <td>{{ declined.index(row) + 1 }}</td>
+                                    <td style="cursor: pointer" data-bs-toggle="modal" data-bs-target="{{ '#Data'+declined.index(row)|string }}">{{ row['NAME'] }}</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <div class="modal fade" id="{{ 'Data'+declined.index(row)|string }}" tabindex="-1" aria-labelledby="{{ declined.index(row)|string+'Label' }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content p-5">
+                                            <div class="modal-header">
+                                                <strong style="font-size: 1.25rem">Organisation Details</strong>
+                                                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="d-grid gap-1">
+                                                    <span><strong>Organisation Name: </strong>{{ row['NAME'] }}</span>
+                                                    <span><strong>Email: </strong>{{ row['EMAIL'] }}</span>
+                                                    <span><strong>Contact No: </strong>{{ row['CONTACT'] }}</span>
+                                                    <span><strong>Locality: </strong>{{ row['LOCALITY'] }}</span>
+                                                    <span><strong>City: </strong>{{ row['CITY'] }}</span>
+                                                    <span><strong>State: </strong>{{ row['STATE'] }}</span>
+                                                    <span><strong>Address: </strong>{{ row['ADDRESS'] }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        const csrf_token = "{{ csrf_token() }}";
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
+    </script>
+    <script src="{{ url_for('sprint2.static', filename="js/administrator.js") }}"></script>
+{% endblock javascript %}
